@@ -35,6 +35,54 @@ const handlerTwoSum = (fn: any) => {
 	}
 };
 
+const starterCodeTwoSumCpp = `#include <vector>
+using namespace std;
+
+vector<int> twoSum(vector<int>& nums, int target) {
+  // Write your code here
+}`;
+const handlerTwoSumCpp = (fn:any) => {
+	try {
+	  const nums = [
+		[2, 7, 11, 15],
+		[3, 2, 4],
+		[3, 3],
+	  ];
+	  const targets = [9, 6, 6];
+	  const answers = [
+		[0, 1],
+		[1, 2],
+		[0, 1],
+	  ];
+  
+	  for (let i = 0; i < nums.length; i++) {
+		const input = nums[i].map((num) => num.toString()).join(", ");
+		const cppCode = `#include <vector>
+  using namespace std;
+  
+  ${fn}
+  
+  int main() {
+	vector<int> nums = {${input}};
+	int target = ${targets[i]};
+	vector<int> result = twoSum(nums, target);
+	return 0;
+  }`;
+  
+		// Execute the C++ code
+		// Implement your Rapid API calling logic here
+	  }
+  
+	  return true;
+	} catch (error:any) {
+	  console.log("twoSum handler function error");
+	  throw new Error(error);
+	}
+  };
+  
+
+
+
 export const twoSum: Problem = {
 	id: "two-sum",
 	title: "1. Two Sum",
